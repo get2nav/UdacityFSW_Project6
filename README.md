@@ -2,9 +2,9 @@
 Udacity Full Stack Web Developer - Linux Server Configuration
 
 ##  Server Details
-IP address: `18.220.203.131`
-SSH port: `2200`
-URL: `http://ec2-18-220-203-131.us-east-2.compute.amazonaws.com`
+* IP address: `18.220.203.131`
+* SSH port: `2200`
+* URL: `http://ec2-18-220-203-131.us-east-2.compute.amazonaws.com`
 
 ##  Configuration: 
 
