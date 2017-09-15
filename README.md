@@ -2,9 +2,9 @@
 Udacity Full Stack Web Developer - Linux Server Configuration
 
 ##  Server Details
-IP address: `18.220.203.131`
-SSH port: `2200`
-URL: `http://ec2-18-220-203-131.us-east-2.compute.amazonaws.com`
+* IP address: `18.220.203.131`
+* SSH port: `2200`
+* URL: `http://ec2-18-220-203-131.us-east-2.compute.amazonaws.com`
 
 ### 1. Update all currently installed packages
 Log into ssh instace console (Udacity_Instance2017)  
@@ -89,10 +89,8 @@ Log into ssh instace console (Udacity_Instance2017)
 ### 7. Database
 * Set up: 
     * `sudo -u postgres psql postgres`
-
 * Set-up a password for user postgres:
     * `\password postgres` and enter a password (postgres)
-
 * Connect and create catalog: `sudo su - postgres`
 * Promp to psql: Type `psql`    
 * Create a new user
@@ -120,7 +118,6 @@ Log into ssh instace console (Udacity_Instance2017)
     * `git config --global user.email xxxx@xxxx.xxx`
 * Confirm it with 
     * `git config --list`
-
 * Install Flask, SQLAlchemy, etc    
     ```
     sudo apt-get install python-psycopg2 python-flask
@@ -131,7 +128,6 @@ Log into ssh instace console (Udacity_Instance2017)
     sudo pip install httplib2
     sudo pip install flask-seasurf
     ```    
-
 ### 9. Set Up Aplication.
 * Move to the /var/www directory 
     * `cd /var/www`
@@ -169,9 +165,9 @@ Log into ssh instace console (Udacity_Instance2017)
 * Test Application 
     * `sudo python __init__.p`
         * "It should display “Running on http://localhost:5000/” If you see this message, you have successfully configured the app."
-
 * Deactivate the virtual environment
     * `deactivate`
+    
 ### 11. Configure and Enable a New Virtual Host
 * Create FlaskApp.conf under /etc/apache2/sites-available/:
     * `sudo nano /etc/apache2/sites-available/FlaskApp.conf`
