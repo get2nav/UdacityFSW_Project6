@@ -51,6 +51,7 @@ Log into ssh instace console (Udacity_Instance2017)
     * Change Password Authentication from `yes` to `no`
 * Restart the ssh service   
     * `sudo service ssh restart`
+    
 ### 4. Configuration UFW (Uncomplicated Firewall)
 * Block all incoming connections on all ports:
     * `sudo ufw default deny incoming`
@@ -61,7 +62,10 @@ Log into ssh instace console (Udacity_Instance2017)
 * Allow incoming connections for HTTP on port 80:
     * `sudo ufw allow www`
 * Allow incoming connection for NTP on port 123:
-    * `sudo ufw allow ntp`    
+    * `sudo ufw allow ntp`  
+* Deny incoming connection for port 22:
+    * `sudo ufw deny 22`      
+    * `sudo ufw deny 22/tcp` 
 * To check the rules that have been added 
     * `sudo ufw show added`   
 * To enable the firewall, use:
@@ -85,7 +89,8 @@ Log into ssh instace console (Udacity_Instance2017)
 * Install and configure PostgreSQL
     * `sudo apt-get install postgresql postgresql-contrib`
 * Denied remote connections
-    *  Check file: `/etc/postgresql/9.5/main/pg_hba.conf` (By default, remote connections to the database are disabled for security reasons when installing PostgreSQL from the Ubuntu repositories)     
+    *  Check file: `/etc/postgresql/9.5/main/pg_hba.conf` (By default, remote connections to the database are disabled for security reasons when installing PostgreSQL from the Ubuntu repositories)    
+    
 ### 7. Database
 * Set up: 
     * `sudo -u postgres psql postgres`
@@ -193,6 +198,7 @@ Log into ssh instace console (Udacity_Instance2017)
       CustomLog /var/www/Flask/access.log combined
   </VirtualHost>
    ```
+   
 ### 13. Create the .wsgi File      
 * Create the .wsgi File under /var/www/FlaskApp:
     `cd /var/www/Flask`
@@ -207,8 +213,9 @@ Log into ssh instace console (Udacity_Instance2017)
 
       from Flask import app as application
       application.secret_key = 'Add your secret key'
-    ```    
-### 13. Finalize
+    ```  
+    
+### 14. Finalize
 * Restart Apache:
     * `sudo service apache2 restart`
 
