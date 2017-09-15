@@ -2,20 +2,18 @@
 Udacity Full Stack Web Developer - Linux Server Configuration
 
 ##  Server Details
-* IP address: `18.220.203.131`
-* SSH port: `2200`
-* URL: `http://ec2-18-220-203-131.us-east-2.compute.amazonaws.com`
-
-##  Configuration: 
+IP address: `18.220.203.131`
+SSH port: `2200`
+URL: `http://ec2-18-220-203-131.us-east-2.compute.amazonaws.com`
 
 ### 1. Update all currently installed packages
 Log into ssh instace console (Udacity_Instance2017)  
 * Update: 
-    * `sudo apt-get update` 
+    `sudo apt-get update` 
 * Upgrade: 
-    * `sudo apt-get upgrade` 
+    `sudo apt-get upgrade` 
 * Further updates 
-    * `sudo apt-get dist-upgrade` 
+    `sudo apt-get dist-upgrade` 
     
 ### 2. Give grader access.
 * Create a new user account named grader.  
@@ -53,7 +51,6 @@ Log into ssh instace console (Udacity_Instance2017)
     * Change Password Authentication from `yes` to `no`
 * Restart the ssh service   
     * `sudo service ssh restart`
-    
 ### 4. Configuration UFW (Uncomplicated Firewall)
 * Block all incoming connections on all ports:
     * `sudo ufw default deny incoming`
@@ -88,13 +85,14 @@ Log into ssh instace console (Udacity_Instance2017)
 * Install and configure PostgreSQL
     * `sudo apt-get install postgresql postgresql-contrib`
 * Denied remote connections
-    *  Check file: `/etc/postgresql/9.5/main/pg_hba.conf` (By default, remote connections to the database are disabled for security reasons when installing PostgreSQL from the Ubuntu repositories)  
-    
+    *  Check file: `/etc/postgresql/9.5/main/pg_hba.conf` (By default, remote connections to the database are disabled for security reasons when installing PostgreSQL from the Ubuntu repositories)     
 ### 7. Database
 * Set up: 
     * `sudo -u postgres psql postgres`
+
 * Set-up a password for user postgres:
     * `\password postgres` and enter a password (postgres)
+
 * Connect and create catalog: `sudo su - postgres`
 * Promp to psql: Type `psql`    
 * Create a new user
@@ -171,13 +169,13 @@ Log into ssh instace console (Udacity_Instance2017)
 * Test Application 
     * `sudo python __init__.p`
         * "It should display “Running on http://localhost:5000/” If you see this message, you have successfully configured the app."
+
 * Deactivate the virtual environment
     * `deactivate`
-Reference: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
-    
 ### 11. Configure and Enable a New Virtual Host
 * Create FlaskApp.conf under /etc/apache2/sites-available/:
     * `sudo nano /etc/apache2/sites-available/FlaskApp.conf`
+
 * Add the following lines of code to the flaskapp.wsgi file:
    ```
   <VirtualHost *:80>
@@ -199,7 +197,6 @@ Reference: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flas
       CustomLog /var/www/Flask/access.log combined
   </VirtualHost>
    ```
-   
 ### 13. Create the .wsgi File      
 * Create the .wsgi File under /var/www/FlaskApp:
     `cd /var/www/Flask`
@@ -215,13 +212,18 @@ Reference: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flas
       from Flask import app as application
       application.secret_key = 'Add your secret key'
     ```    
-
-### 14. Finalize
+### 13. Finalize
 * Restart Apache:
-    * `sudo service apache2 restart`    
-    
-* Visit site at http://ec2-18-220-203-131.us-east-2.compute.amazonaws.com/   
+    * `sudo service apache2 restart`
 
+* Visit site at http://ec2-18-220-203-131.us-east-2.compute.amazonaws.com/    
 
+### *** Third-party resources/tutorials
+* https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+* https://devops.profitbricks.com/tutorials/deploy-a-flask-application-on-ubuntu-1404/
+* https://blog.tersmitten.nl/ufw-delete-firewall-rules-by-number.html
+* https://aws.amazon.com/es/documentation/lightsail/    
+* https://console.developers.google.com 
+* http://www.techrepublic.com/article/how-to-start-stop-and-restart-services-in-linux/ 
 
 
